@@ -64,3 +64,8 @@ Output: detect semantic issue -> optimize prompt -> generate a more realistic ve
 ## 📄 License | 许可证
 
 MIT License
+
+Copyright (c) 2026 Clement-2333
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files...
