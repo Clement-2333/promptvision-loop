@@ -2,7 +2,7 @@
 
 An advanced OpenClaw skill for optimizing AI-generated images through prompt alignment, logical analysis, and iterative refinement.
 
-一个基于提示词对齐、逻辑分析与多轮迭代优化的 AI 图像优化 Skill。
+一个基于提示词对齐、逻辑分析与多轮迭代优化的 AI 图像优化 Skill。（openclaw）
 
 ## ✨ Features | 功能特点
 
