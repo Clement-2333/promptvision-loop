@@ -1,0 +1,153 @@
+{
+  "max_iterations": 3,
+  "target_score": 90,
+  "min_logic_score": 85,
+  "llm_model": "gpt-4o",
+  "input_handling": {
+    "auto_detect_input_type": true,
+    "image_edit_requires_confirmation": true,
+    "default_mode_for_text": "prompt_to_image",
+    "default_mode_for_image": "image_edit"
+  },
+  "validation": {
+    "check_prompt_alignment": true,
+    "check_logical_consistency": true,
+    "report_detected_errors": true,
+    "max_reported_errors": 8
+  },
+  "routing": {
+    "default_region": "global",
+    "fallback_region_order": ["global", "china"],
+    "provider_timeout_ms": 45000,
+    "retry_on_failure": 1
+  },
+  "image_generation_api": {
+    "default_provider": "openai",
+    "default_model": "gpt-image-1.5",
+    "providers": {
+      "openai": {
+        "api_style": "openai-images",
+        "api_key_env": "OPENAI_API_KEY",
+        "base_url_env": "OPENAI_BASE_URL",
+        "models": ["gpt-image-1.5", "gpt-image-1", "gpt-image-1-mini"],
+        "supports_image_edit": true
+      },
+      "google_vertex_imagen": {
+        "api_style": "vertex-imagen",
+        "api_key_env": "GOOGLE_APPLICATION_CREDENTIALS",
+        "base_url_env": "VERTEX_API_BASE_URL",
+        "models": [
+          "imagen-4.0-generate-001",
+          "imagen-4.0-ultra-generate-001",
+          "imagen-4.0-fast-generate-001",
+          "imagen-3.0-generate-002"
+        ],
+        "supports_image_edit": true
+      },
+      "black_forest_labs": {
+        "api_style": "bfl",
+        "api_key_env": "BFL_API_KEY",
+        "base_url_env": "BFL_BASE_URL",
+        "models": ["flux-pro-1.1", "flux-pro-1.1-ultra"],
+        "supports_image_edit": false
+      },
+      "stability_ai": {
+        "api_style": "stability",
+        "api_key_env": "STABILITY_API_KEY",
+        "base_url_env": "STABILITY_API_BASE_URL",
+        "models": [
+          "stable-diffusion-3.5-large",
+          "stable-diffusion-3.5-large-turbo",
+          "stable-diffusion-3.5-medium"
+        ],
+        "supports_image_edit": true
+      },
+      "ideogram": {
+        "api_style": "ideogram",
+        "api_key_env": "IDEOGRAM_API_KEY",
+        "base_url_env": "IDEOGRAM_API_BASE_URL",
+        "models": ["ideogram-v3"],
+        "supports_image_edit": true
+      },
+      "midjourney": {
+        "api_style": "proxy-required",
+        "api_key_env": "MIDJOURNEY_PROXY_API_KEY",
+        "base_url_env": "MIDJOURNEY_PROXY_BASE_URL",
+        "models": ["v7", "v6.1"],
+        "supports_image_edit": false
+      },
+      "aliyun_dashscope_wan": {
+        "api_style": "dashscope-wan",
+        "api_key_env": "DASHSCOPE_API_KEY",
+        "base_url_env": "DASHSCOPE_BASE_URL",
+        "models": [
+          "wan2.7-image-pro",
+          "wan2.7-image",
+          "wan2.6-t2i",
+          "wan2.2-t2i-plus",
+          "wan2.2-t2i-flash"
+        ],
+        "supports_image_edit": true
+      },
+      "bytedance_seedream": {
+        "api_style": "volcengine-seedream",
+        "api_key_env": "VOLCENGINE_API_KEY",
+        "base_url_env": "VOLCENGINE_BASE_URL",
+        "models": [
+          "doubao-seedream-4.5",
+          "doubao-seedream-4.0",
+          "doubao-seedream-3.0-t2i"
+        ],
+        "supports_image_edit": true
+      },
+      "tencent_hunyuan_image": {
+        "api_style": "tencent-hunyuan",
+        "api_key_env": "TENCENTCLOUD_SECRET_ID",
+        "base_url_env": "TENCENT_HUNYUAN_BASE_URL",
+        "models": ["SubmitTextToImageJob", "TextToImageRapid", "TextToImageLite"],
+        "supports_image_edit": false,
+        "model_aliases": {
+          "SubmitTextToImageJob": "hunyuan-image-3.0",
+          "TextToImageRapid": "hunyuan-image-2.0",
+          "TextToImageLite": "hunyuan-image-lite"
+        }
+      },
+      "baidu_qianfan_image": {
+        "api_style": "qianfan-image",
+        "api_key_env": "QIANFAN_ACCESS_KEY",
+        "base_url_env": "QIANFAN_BASE_URL",
+        "models": ["musesteamer-air-image", "flux.1-schnell", "qwen-image"],
+        "supports_image_edit": false
+      },
+      "zhipu_image": {
+        "api_style": "bigmodel-image",
+        "api_key_env": "ZHIPU_API_KEY",
+        "base_url_env": "ZHIPU_BASE_URL",
+        "models": ["glm-image", "cogview-4-250304", "cogview-4", "cogview-3-flash"],
+        "supports_image_edit": true
+      }
+    }
+  },
+  "llm_analysis_api": {
+    "default_provider": "openai",
+    "default_model": "gpt-4o",
+    "providers": {
+      "openai": {
+        "api_key_env": "OPENAI_API_KEY",
+        "models": ["gpt-4o", "gpt-4.1", "o3"]
+      },
+      "google": {
+        "api_key_env": "GEMINI_API_KEY",
+        "models": ["gemini-2.5-pro", "gemini-2.5-flash"]
+      },
+      "deepseek": {
+        "api_key_env": "DEEPSEEK_API_KEY",
+        "models": ["deepseek-chat", "deepseek-reasoner"]
+      },
+      "doubao": {
+        "api_key_env": "ARK_API_KEY",
+        "models": ["doubao-1.5-pro", "doubao-1.5-lite"]
+      }
+    }
+  }
+}
